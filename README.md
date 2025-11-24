@@ -6,4 +6,4 @@ Based on the [original work](https://arxiv.org/abs/1404.5609) by Barber and Cand
 
 The model X knockoff framework is used as a variable selection tool while controlling for the FDR. As it can be implemented for a wide range of models, it is very powerful in situations where typical statistical models lack the ability to capture heterogeneity.
 
-See [DESCRIPTION.pdf]() for implementation details.
+See [DESCRIPTION.pdf](https://github.com/danielcgingerich/model_x_knockoffs/blob/main/DESCRIPTION.pdf) for implementation details.
