@@ -29,16 +29,16 @@ If we assume the null hypothesis that $X_j$ and $Y$ are conditionally independen
 
 Given this information, the distribution of $V_j$'s should be a mixture of null features (symmetric, mean 0, low variance) and true features (large, positive).  The FDR at threshold $t$ can be approximated as:
 
-$$\text{FDR}(t) = \frac{
-\sum_j \textbf{1} \{ V_j \leq -t \}
-}{\sum_j \textbf{1} \{ V_j \geq t \} }$$
+$$\{FDR}(t) = \frac{
+\sum_j \bf{1} \{ V_j \leq -t \}
+}{\sum_j \bf{1} \{ V_j \geq t \} }$$
 
 In the above calculation, we take advantage of the fact that null features are symmetric about 0, while alternative features are strictly positive. We can estimate the null proportion by the number of features with $V_j$ less than $-t$, because it is rare that a true feature will take on a negative value.
 
 ### Constructing the model X knockoff
 The latter procedure is reliant on the fact that we can construct a reliable joint distribution for X. To do this, we apply the sequential conditional independent pairs procedure, outlined in Barber and Candes, 2015. 
 
-\textit{(1) Sampling of the first variable} &mdash; For $j = 1$, we sample conditional $	\tilde{X}_1$, 
+*(1) Sampling of the first variable* &mdash; For $j = 1$, we sample conditional $	\tilde{X}_1$, 
 
 $$ 	\tilde{X}_1 | X_{-1} \sim \text{N} ( \mu = f_1 (X_{-1}), \sigma_2 = \exp ( g_1 (X_{-1} ) )$$
 
@@ -52,7 +52,7 @@ $$ g_1 = \text{argmin}_{g_1} \Big( \sum_{i=1}^N \big(
 
 Where $R_1$ is the residual from $f_1$. We predict the log of the squared residuals to enforce that $\hat{\sigma}^2 = \exp(g(X_{-1}))$ is positive. 
 
-\textit{(2) Sequential sampling of remaining variables} &mdash; For $j = 2, ..., p$, we sample the conditional $	\tilde{X}_j$'s: 
+*(2) Sequential sampling of remaining variables* &mdash; For $j = 2, ..., p$, we sample the conditional $	\tilde{X}_j$'s: 
 
 $$	\tilde{X}_j | X_{-j}, 	\tilde{X}_{1:(j-1)} \sim \text{N} \big( 
 f_j([X_{-j}, X_{1:(j-1)}]), \ g_j([X_{-j}, X_{1:(j-1)}])
